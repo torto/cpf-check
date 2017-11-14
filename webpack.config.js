@@ -1,12 +1,14 @@
-const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const resolve = (path) => require('path').resolve(process.cwd(), path);
+const webpack = require('webpack');
+
 
 function base(options) {
     return {
-        entry: './src/index.html',
+        entry: './src/index.js',
         
         output: {
-            path: './dist/',
+            path: resolve('dist/'),
             filename: options.output.filename,
             library: 'cpf',
             libraryTarget: 'umd',
@@ -29,9 +31,9 @@ function base(options) {
 
         plugins: [
             new webpack.EnvironmentPlugin(['NODE_ENV']),
-        ].concat(options.plugins),
+        ],
 
-        devtool: "source-map",
+        devtool: options.devtool,
     };
 }
 
@@ -40,16 +42,13 @@ if (process.env.NODE_ENV === 'production') {
         output: {
             filename: 'cpf.js'
         },
-        plugins: [],
+        devtool: "source-map",
     });
 } else {
     module.exports = base({
         output: {
             filename: 'cpf.development.js',
         },
-
-        plugins: [
-            new CircularDependencyPlugin(circularDepsConfig),
-        ]
+        devtool: "eval",
     })
 }
