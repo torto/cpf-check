@@ -60,3 +60,5 @@ typings/
 # Coveralls token file
 .coveralls.yml
 
+# Development files
+*.development.js
