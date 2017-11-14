@@ -196,5 +196,3 @@ export default class CPF {
         return format(`${digits.join('')}${first}${second}`);
     }
 }
-
-export default CPF;
