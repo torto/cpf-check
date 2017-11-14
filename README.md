@@ -12,7 +12,7 @@ V1.2 on the works, replacing gulp with webpack, better using babel and using ES6
 - [X] Re-factor source.
 - [X] Create webpack's settings.
 - [ ] Re-write all tests :cold_sweat:
-- [ ] Redo travis settings.
+- [X] Redo travis settings.
 - [ ] Run tests and make sure nothing is breaking.
 - [ ] Repeat the previous process.
 - [ ] Deploy to NPM!
